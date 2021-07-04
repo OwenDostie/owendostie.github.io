@@ -14,21 +14,23 @@
     padding: 38px;
 }
 
-.nav-link-wrapper {
+ .nav-link-wrapper {
     height: 22px;
-    border-bottom: 1px solid transparent;
     margin-right: 1em;
+    border-bottom: 1px solid transparent;
     transition: border-bottom 0.5s;
 }
 
 .nav-link-wrapper a {
-    color: #6a6a6a;
+    color: #808080;
     text-decoration: none;
     transition: color 0.5s;
 }
 
 .nav-link-wrapper:hover {
     border-bottom: 1px solid black;
+    border-bottom-style:
+    transition: border-bottom 0.4s;
 }
 
 .nav-link-wrapper a:hover {
