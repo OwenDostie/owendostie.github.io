@@ -1,0 +1,7 @@
+- floating navbar
+- about page
+    - links to soundcloud, github, linkedin, other social media?
+- html doc within main page (projects in R)
+- markdown doc within main page (blog posts)
+- text version of resume
+- copyright thing at bottom of page
