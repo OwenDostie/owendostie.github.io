@@ -1,7 +1,0 @@
-
-- hide index.html or whatever
-- persistent navbar
-- home page
-- embed one html document inside of another
-- text version of resume
-- github, soundcloud, email links
