@@ -1,3 +1,6 @@
+--------------------------------------------
+To-do list
+--------------------------------------------
 - floating navbar
 - about page
     - links to soundcloud, github, linkedin, other social media?
@@ -5,3 +8,57 @@
 - markdown doc within main page (blog posts)
 - text version of resume
 - copyright thing at bottom of page
+- create an icon
+
+--------------------------------------------
+Site description
+--------------------------------------------
+https://100r.co/site/ronin.html
+https://e-ec.co/
+Main focus of the site is a center column with a min width so that it reads pretty much the same on mobile. 
+
+
+Navbar is always present, when scrolling down collapses into a hamburger menu
+    Owen dostie
+        - links to about me
+    Projects
+        - mouse over projects and a couple select ones pop up, click it to navigate to all projects
+    Blog
+        - mouse over for the three most recent, click to navigate all 
+
+
+Welcome page
+    Welcome
+
+    Arrow points down
+    - scroll and you land on the about me page, it snaps down
+
+
+Owen Dostie (about me)
+    - link to resume
+    - links to github, linkedin, soundcloud, youtube
+    - short biography
+
+    Resume
+        - markdown document formatted same as the website. don't include everything that's on current resume
+
+    Links
+        - just an image for each link
+
+    Bio
+        - Things that I would want someone's first impression of me to be, that are also true.
+
+
+Projects 
+    - on the left is an alphabetical list of all projects
+    - an undated list of all my projects with links to check them out. 
+    - some will say (in progress) 
+
+Blog
+    - Hyperlink to [All posts] at the top
+    - Each blog post has a title card with a brief summary.
+    - More load when you scroll to the bottom of the page.
+    
+    Post
+        - May be easiest to write them in markdown, render them in real-time with javascript
+

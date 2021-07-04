@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -6,25 +5,28 @@
     text-decoration: none;
 }
 
+body {
+    background-color: #ececec
+}
+
 .header {
     width: 100%;
     height: 80px;
     display: block;
-    background-color: #dadada;
+    background-color: #ffffff;
 }
 
 .h1 {
-    display: flex;
-    margin: 50px auto;
+    margin-top: 400px;
 }
 
 .nav-wrapper {
     display: flex;
     justify-content: left;
-    padding: 38px;
+    padding: 34px;
 }
 
- .nav-link-wrapper {
+.nav-link-wrapper {
     height: 22px;
     margin-right: 1em;
     border-bottom: 1px solid transparent;
@@ -32,8 +34,9 @@
 }
 
 .nav-link-wrapper a {
-    color: #808080;
+    color: #777777;
     transition: color 0.5s;
+    font-size: 
 }
 
 .nav-link-wrapper:hover {
