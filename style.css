@@ -1,11 +1,21 @@
 
-.body {
-    animation: fadeInAnimation ease 2s;
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
 }
 
-@keyframes fadeInAnimation {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+.header {
+    width: 100%;
+    height: 80px;
+    display: block;
+    background-color: #dadada;
+}
+
+.h1 {
+    display: flex;
+    margin: 50px auto;
 }
 
 .nav-wrapper {
@@ -23,14 +33,11 @@
 
 .nav-link-wrapper a {
     color: #808080;
-    text-decoration: none;
     transition: color 0.5s;
 }
 
 .nav-link-wrapper:hover {
     border-bottom: 1px solid black;
-    border-bottom-style:
-    transition: border-bottom 0.4s;
 }
 
 .nav-link-wrapper a:hover {
