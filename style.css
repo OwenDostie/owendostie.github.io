@@ -1,15 +1,36 @@
-.placeholder {
-    background-color: red;
-    color: blue;
+
+.body {
+    animation: fadeInAnimation ease 2s;
+}
+
+@keyframes fadeInAnimation {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .nav-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     padding: 38px;
 }
 
-.nav-wrapper > .left-side > div {
-    margin-right: 20px;
-    font-size: 0.9m;
+.nav-link-wrapper {
+    height: 22px;
+    border-bottom: 1px solid transparent;
+    margin-right: 1em;
+    transition: border-bottom 0.5s;
+}
+
+.nav-link-wrapper a {
+    color: #6a6a6a;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.nav-link-wrapper:hover {
+    border-bottom: 1px solid black;
+}
+
+.nav-link-wrapper a:hover {
+    color: black;
 }
