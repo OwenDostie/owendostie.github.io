@@ -1,4 +1,6 @@
-rex_eda/
+rex_eda
 todo/
-.gitignore/
-clue/
+.gitignore
+.jekyll-metadata
+.jekyll-cache
+_site
