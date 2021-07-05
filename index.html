@@ -5,9 +5,9 @@
         <meta charset="UTF-8" /><meta name='viewport' content='width=device-width initial-scale=1'>
         <title>Owen Dostie</title>
         <link rel="stylesheet" href="style.css" />
-
+            
         <style>
-            body { animation: fadeInAnimation ease 1.25s; }
+            body { animation: fadeInAnimation ease 1s; }
             @keyframes fadeInAnimation {
                 0%   { opacity: 0; }
                 50%  { opacity: 0; }
@@ -17,18 +17,42 @@
     </head>
 
     <!-- BODY -->
-    <body>
+    <!-- <body onresize='document.getElementsByTagName("body")[0].style[ "font-size" ] = document.body.clientWidth*(13/1280) + "px";'> -->
         <!-- NAVBAR -->
-        <div class="header">
-            <div class="nav-wrapper">
-                <div class="nav-link-wrapper"><a href= "/"><b>Owen Dostie</b></a></div>
-                <!-- <div class="nav-link-wrapper"><a href="/resume.pdf">Resume</a></div> -->
-                <div class="nav-link-wrapper"><a href="/blog">Blog</a></div>
+        <div class="navbar">
+            <div class="navbar__menu">
+                <a class="navbar__menu-item" href="/" style="font-weight: bold"><div>Owen Dostie</div></a>
+                <a class="navbar__menu-item" href="/"><div>Blog</div></a>
+                <!-- <div class="navbar__button"><a href="/resume.pdf">Resume</a></div> -->
+                <!-- <a class="navbar__menu-item" href="/blog"><div>Blog</div></a> -->
             </div>
         </div>
         
         <div>
-            <h1 style="text-align:center;padding-top: 200px; font-size: 48px;">Welcome.</h1>
+            <main>
+                <!-- MAIN CONTENT -->
+                <content>
+                    <h3>Projects</h2>
+                    <ul>
+                        <li><a href="https://github.com/OwenDostie/florida-charter-schools">
+                            Research</a> on the educational and financial impacts of Florida charter schools. 
+                        </li>
+                        <li>ML-driven <a href="">top 50 albums list</a>
+                            based on 5 years of personal Spotify data. 
+                        </li>
+                        <li><a href="https://docs.google.com/document/d/15WSVvpJraFbM1HTLG3R4J8FoAneTOgGBGVHkkl-JKJQ/edit?usp=sharing">Benefit-cost analysis</a>
+                            to reduce production line inefficiency for Refresco Lakeland. 
+                        </li>
+                    </ul>
+                    <h3>Education</h3>
+                    <ul>
+                        <li><i>Florida Polytechnic University</i>, B.S. Data Science</li>
+                        </li>
+                    </ul>
+
+                </content>
+            </main>
         </div>
+        
     </body>
 </html> 

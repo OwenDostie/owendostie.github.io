@@ -1,15 +1,17 @@
 --------------------------------------------
 To-do list
 --------------------------------------------
-- floating navbar
-- about page
-    - links to soundcloud, github, linkedin, other social media?
-- html doc within main page (projects in R)
-- markdown doc within main page (blog posts)
-- text version of resume
-- copyright thing at bottom of page
-- create an icon
+- about page oh home
+    - short list of projects & experience
+    - education section
+    - links to github, linkedin, soundcloud
+- create a favicon
 - choose a better font (google fonts w embed link)
+
+DO EVENTUALLY
+- navbar, floating
+- add blog summary page w/ cards
+- markdown doc within main page (blog posts)
 - syntax highlighting      
 
 --------------------------------------------
@@ -21,6 +23,7 @@ Main focus of the site is a center column with a min width so that it reads pret
 The purpose of the site is as a place for recruiters to access information about me, my projects, and my writing. 
 Some google employee will hopefully visit this site in 7 months
 Viewers of my site:
+    - Potential employers 
     - My friends
     - Job recruiters / potential employers
     - 
@@ -29,10 +32,8 @@ Viewers of my site:
 Navbar is always present, when scrolling down collapses into a hamburger menu
     Owen dostie
         - links to about me
-    Projects
-        - mouse over projects and a couple select ones pop up, click it to navigate to all projects
     Blog
-        - mouse over for the three most recent, click to navigate all 
+        - mouse over for the three most recent, click to navigate all in the form of cards
 
 
 Welcome page
