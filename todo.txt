@@ -9,13 +9,21 @@ To-do list
 - text version of resume
 - copyright thing at bottom of page
 - create an icon
+- choose a better font (google fonts w embed link)
+- syntax highlighting      
 
 --------------------------------------------
 Site description
 --------------------------------------------
 https://100r.co/site/ronin.html
 https://e-ec.co/
-Main focus of the site is a center column with a min width so that it reads pretty much the same on mobile. 
+Main focus of the site is a center column with a min width so that it reads pretty much the same on mobile.
+The purpose of the site is as a place for recruiters to access information about me, my projects, and my writing. 
+Some google employee will hopefully visit this site in 7 months
+Viewers of my site:
+    - My friends
+    - Job recruiters / potential employers
+    - 
 
 
 Navbar is always present, when scrolling down collapses into a hamburger menu
