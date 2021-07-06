@@ -1,17 +1,16 @@
 --------------------------------------------
 To-do list
 --------------------------------------------
-- about page oh home
-    - short list of projects & experience
-    - education section
-    - links to github, linkedin, soundcloud
+- min text size for 4k displays. or some form of automatic text scaling.
 - create a favicon
-- choose a better font (google fonts w embed link)
+- choose a better font? (google fonts w embed link)
+- test it out on different resolutions/browsers. landscape mode on mobile?
+    - mobile view still needs work on the centering and positioning of text. 
+- Link to LaTeX resume https://github.com/sb2nov/resume
 
 DO EVENTUALLY
 - navbar, floating
-- add blog summary page w/ cards
-- markdown doc within main page (blog posts)
+- add blog summary page w/ cards https://codepen.io/mariohernandez/pen/ddWZXP?editors=1100
 - syntax highlighting      
 
 --------------------------------------------
@@ -37,10 +36,6 @@ Navbar is always present, when scrolling down collapses into a hamburger menu
 
 
 Welcome page
-    Welcome
-
-    Arrow points down
-    - scroll and you land on the about me page, it snaps down
 
 
 Owen Dostie (about me)
