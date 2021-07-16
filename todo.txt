@@ -6,13 +6,16 @@ To-do list
 - choose a better font? (google fonts w embed link)
 - test it out on different resolutions/browsers. landscape mode on mobile?
     - mobile view still needs work on the centering and positioning of text. 
-- Link to LaTeX resume https://github.com/sb2nov/resume
-
 DO EVENTUALLY
 - navbar, floating
 - add blog summary page w/ cards https://codepen.io/mariohernandez/pen/ddWZXP?editors=1100
 - syntax highlighting      
 
+--------------------------------------------
+Notes
+--------------------------------------------
+LaTeX resume https://github.com/sb2nov/resume
+C:\Users\owend\Desktop\owendostie.github.io (jekyll serve, py -m jupyter notebook)
 --------------------------------------------
 Site description
 --------------------------------------------
