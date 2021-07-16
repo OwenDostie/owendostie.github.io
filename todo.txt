@@ -2,7 +2,6 @@
 To-do list
 --------------------------------------------
 - min text size for 4k displays. or some form of automatic text scaling.
-- create a favicon
 - choose a better font? (google fonts w embed link)
 - test it out on different resolutions/browsers. landscape mode on mobile?
     - mobile view still needs work on the centering and positioning of text. 
@@ -16,6 +15,9 @@ Notes
 --------------------------------------------
 LaTeX resume https://github.com/sb2nov/resume
 C:\Users\owend\Desktop\owendostie.github.io (jekyll serve, py -m jupyter notebook)
+
+    {% capture md %}{% include_relative /markdown/spotify_analysis.md %}{% endcapture %}
+    {{ md | markdownify }}
 --------------------------------------------
 Site description
 --------------------------------------------
