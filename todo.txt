@@ -13,11 +13,11 @@ DO EVENTUALLY
 --------------------------------------------
 Notes
 --------------------------------------------
-LaTeX resume https://github.com/sb2nov/resume
+LaTeX resume https://github.com/sb2nov/resume    Template: https://github.com/sb2nov/resume
 C:\Users\owend\Desktop\owendostie.github.io (jekyll serve, py -m jupyter notebook)
 
     {% capture md %}{% include_relative /markdown/spotify_analysis.md %}{% endcapture %}
-    {{ md | markdownify }}
+    {{ md | markdownify }}          https://jekyllrb.com/docs/liquid/filters/
 --------------------------------------------
 Site description
 --------------------------------------------
