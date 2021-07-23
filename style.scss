@@ -1,12 +1,25 @@
 ---
 ---
+// CONSTANTS
+$timeline-height: 660px;
+$timeline-width: 420px; //576px;
 
+// COLORS
 $color-black: #000;
 $color-white: #fff;
 $color-offwhite: #eeeeee;
 $color-gray: #807e7e;
 $color-blue: rgb(0, 109, 251); 
 $text-color: black;
+$tl-color1: brown;
+$tl-color2: cadetblue;
+$tl-color3: seagreen;
+$tl-color4: hotpink;
+$tl-color5: sandybrown;
+$tl-color6: slateblue;
+
+
+
 
 * {
     list-style: none;
@@ -42,7 +55,7 @@ content {
     }
 
     div {
-        max-width: 480px;
+        max-width: 360px;
         margin: 0.5em;
     }
 }
@@ -178,5 +191,83 @@ ul li:before {
         justify-content: left;
         padding-top: 0px;
         font-size: 0.8em;
+    }
+}
+
+.timeline {
+    min-height: $timeline-height;
+}
+
+.timeline__card {
+    z-index: 0;
+    margin: 0 auto;
+    border-radius: 9px;
+    min-width: 80px;
+    min-height: 4em;
+    background-color: rgb(100, 100, 100);
+    opacity: 0.75;
+    transition: opacity 0.5s;
+
+
+    &:hover {
+        opacity: 1;
+        z-index: 10;
+    }
+
+    &:focus {
+        border: dashed rgb(0, 0, 0) 1px;
+    }
+}
+
+.timeline__card-body {
+    margin: 6px;
+    color: black;
+    text-align: center;
+    min-width:130px;
+    min-height: 2em;
+
+    h2 {
+        padding-top: 0px;
+        font-weight: lighter;
+        margin: 0;
+    }
+    p {
+        // color: rgb(223, 223, 223);
+        font-style: italic;
+        margin: 0;
+    }
+}
+
+.timeline__card-content {
+    visibility: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .timeline:after {
+        content: 'timeline__line';
+        color: transparent;
+        position: absolute;
+        height: $timeline-height;
+        width: 2px;
+        left: 50%;
+        transform: translate(-1px,0);
+        background-color: $color-gray;
+    }
+
+    .timeline {
+        position: relative;
+        min-width: $timeline-width;
+    }
+
+    .timeline__card {
+        width: 50%;
+        max-width: 210px;
+        position: absolute;
+        left: 50%;
+    }
+
+    .timeline__card[data-pos="left"] {
+        left: 0;
     }
 }
