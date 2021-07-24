@@ -1,8 +1,10 @@
 ---
+
 ---
+
 // CONSTANTS
 $timeline-height: 660px;
-$timeline-width: 420px; //576px;
+$timeline-width: 500px; //576px;
 
 // COLORS
 $color-black: #000;
@@ -17,9 +19,6 @@ $tl-color3: seagreen;
 $tl-color4: hotpink;
 $tl-color5: sandybrown;
 $tl-color6: slateblue;
-
-
-
 
 * {
     list-style: none;
@@ -82,6 +81,32 @@ ul li:before {
     padding-right: 0.7em;
     padding-left: -1em;
     vertical-align: middle;
+}
+
+// PRETENTIOUS BACKGROUND
+.bg-grain {
+    background-image: url("/img/film_grain.gif");
+    background-size: 100% 100%;
+    position: fixed;
+    top: 0px; 
+    left: 0px;
+    opacity: 0.06;
+    height: 100vh;
+    width: 100vw;
+    content: '';
+    z-index: -1;
+}
+
+.bg-gradient {
+    background: radial-gradient(white,white,white, black);
+    background-size: 100% 100%;
+    width: 100vw; height: 100vh;
+    position: fixed;    
+    opacity: 0.1;
+    top: 0px; 
+    left: 0px;
+    content: '';
+    z-index: -1;
 }
 
 // ICONS //
@@ -194,37 +219,64 @@ ul li:before {
     }
 }
 
+// DEFAULT TIMELINE BEHAVIOR
 .timeline {
     min-height: $timeline-height;
 }
 
 .timeline__card {
-    z-index: 0;
-    margin: 0 auto;
-    border-radius: 9px;
-    min-width: 80px;
-    min-height: 4em;
-    background-color: rgb(100, 100, 100);
-    opacity: 0.75;
-    transition: opacity 0.5s;
+    // retro look
+    filter: sepia(1) saturate(0.5); 
+    transition: filter 0.5s;
 
+    // create roundrect background w/ shadow
+    background-color: rgb(100, 100, 100);
+    border-radius: 9px;
+    box-shadow: 0 0 12px black;
+
+    // minimum card size
+    min-width: 80px;
+    min-height: 32px;
+
+    // center text vertically & horizontally
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
 
     &:hover {
-        opacity: 1;
+        // opacity: 1;
         z-index: 10;
+        filter: sepia(0.7);
     }
 
-    &:focus {
-        border: dashed rgb(0, 0, 0) 1px;
+    &:active {
+        border: inset black 1px;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        height: 15px;
+        width: 15px;
+        background-color: $color-gray;
+        border-radius: 50%;
+        top: 0;
     }
 }
 
 .timeline__card-body {
-    margin: 6px;
-    color: black;
+
+    // horizontally center body and add small margins
     text-align: center;
     min-width:130px;
-    min-height: 2em;
+    margin: 6px;
+
+    // default to gray before js
+    color: black;
+
+    user-select: none;
+
 
     h2 {
         padding-top: 0px;
@@ -232,16 +284,16 @@ ul li:before {
         margin: 0;
     }
     p {
-        // color: rgb(223, 223, 223);
         font-style: italic;
         margin: 0;
     }
 }
 
 .timeline__card-content {
-    visibility: hidden;
+    display: none;
 }
 
+// WIDESCREEN VIEW
 @media only screen and (min-width: 768px) {
 
     .timeline:after {
@@ -261,13 +313,43 @@ ul li:before {
     }
 
     .timeline__card {
-        width: 50%;
-        max-width: 210px;
+        max-width: 180px;
         position: absolute;
         left: 50%;
+        margin-right: 0px;
+        margin-left: 20px;
     }
 
     .timeline__card[data-pos="left"] {
         left: 0;
+        margin-right: 20px;
+        margin-left: 0px;
+    }
+}
+
+// MOBILE VIEW
+@media only screen and (max-width: 767px) {
+
+    .timeline:after {
+        content: 'timeline__line';
+        color: transparent;
+        position: absolute;
+        height: $timeline-height;
+        width: 2px;
+        left: 12px;
+        background-color: $color-gray;
+    }
+
+    .timeline {
+        position: relative;
+        max-width: 234px;
+    }
+
+    .timeline__card {
+        max-width: 12px;
+        position: absolute;
+        left: 50%;
+        margin-right: 0px;
+        margin-left: 0px;
     }
 }
