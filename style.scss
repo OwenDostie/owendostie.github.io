@@ -2,10 +2,6 @@
 
 ---
 
-// CONSTANTS
-$timeline-height: 660px;
-$timeline-width: 500px; //576px;
-
 // COLORS
 $color-black: #000;
 $color-white: #fff;
@@ -40,6 +36,7 @@ body {
 }
 
 content {
+    // CENTER CONTENT ITEMS ON SCREEN
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,7 +51,6 @@ content {
     }
 
     div {
-        max-width: 360px;
         margin: 0.5em;
     }
 }
@@ -219,20 +215,103 @@ ul li:before {
     }
 }
 
+// TIMELINE CONSTANTS
+$timeline-height: 660px;
+$timeline-width: 500px; //576px;
+$timeline-line-width: 12px;
+
 // DEFAULT TIMELINE BEHAVIOR
 .timeline {
     min-height: $timeline-height;
+    max-width: $timeline-width;
+    display: flex;
+
+    .timeline__left, .timeline__right {
+        position: relative;
+        margin: 0;
+        height: 100%;
+        width: ($timeline-width/2 - $timeline-line-width);
+    }
 }
+
+.timeline__line {
+    width: 4px;
+    height: $timeline-height;
+    background-color: $color-black;
+    border-radius: 40%;
+
+    margin: 0 ($timeline-line-width - 4)/2;
+
+    content: 'timeline__line';
+    color: transparent;
+}
+
+.timeline__left {
+    .timeline__item > .timeline__item--marker
+     {
+        border-right: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+}
+
+.timeline__item {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;  
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    border: 1px solid red;
+}
+
+.timeline__item--label {
+    flex: 1;
+    height: 100%;
+    margin: 0;
+
+    // // PUT TEXT NEXT TO MARKER
+    justify-content: center;
+    align-content: center;
+
+    h2 {
+        text-align: right;
+        margin: 0;
+        padding-top: 0px;
+        padding-right: 6px;
+
+        user-select: none;
+        font-weight: lighter;
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}
+
+.timeline__item--marker {
+    margin-left: auto;
+    height: 100%;
+    margin: 0;
+    width: 8px;
+    border: black solid 1px;
+    border-radius: 4px;
+    transform: translateY(-1px)
+}
+
+
 
 .timeline__card {
     // retro look
     //filter: saturate(0.5) sepia(1); 
-    transition: filter 0.5s;
+    // transition: filter 0.5s;
 
     // create roundrect background w/ shadow
-    background-color: rgb(100, 100, 100);
-    border-radius: 9px;
-    box-shadow: 0 0 12px black;
+    // background-color: rgb(100, 100, 100);
+    // border-radius: 9px;
+    // box-shadow: 0 0 12px black;
 
     // minimum card size
     min-width: 80px;
@@ -254,23 +333,24 @@ ul li:before {
         border: inset black 1px;
     }
 
-    &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        height: 15px;
-        width: 15px;
-        background-color: $color-gray;
-        border-radius: 50%;
-        top: 0;
-    }
+    // TIMTLINE INDICATOR DOT
+    // &:before {
+    //     content: '';
+    //     position: absolute;
+    //     left: 0;
+    //     height: 15px;
+    //     width: 15px;
+    //     background-color: $color-gray;
+    //     border-radius: 50%;
+    //     top: 0;
+    // }
 }
 
 .timeline__card-body {
 
     // horizontally center body and add small margins
     text-align: center;
-    min-width:130px;
+    min-width: 130px;
     margin: 6px;
 
     // default to gray before js
@@ -295,62 +375,64 @@ ul li:before {
 }
 
 // WIDESCREEN VIEW
-@media only screen and (min-width: 768px) {
+// @media only screen and (min-width: 768px) {
 
-    .timeline:after {
-        content: 'timeline__line';
-        color: transparent;
-        position: absolute;
-        height: $timeline-height;
-        width: 2px;
-        left: 50%;
-        transform: translate(-1px,0);
-        background-color: $color-gray;
-    }
+//     // TIMELINE LINE
+//     // .timeline:after {
+//     //     content: 'timeline__line';
+//     //     color: transparent;
+//     //     position: absolute;
+//     //     height: $timeline-height;
+//     //     width: 2px;
+//     //     left: 50%;
+//     //     transform: translate(-1px,0);
+//     //     background-color: $color-black;
+//     //     border-radius: 40%;
+//     // }
 
-    .timeline {
-        position: relative;
-        min-width: $timeline-width;
-    }
+//     .timeline {
+//         position: relative;
+//         min-width: $timeline-width;
+//     }
 
-    .timeline__card {
-        max-width: 160px;
-        position: absolute;
-        left: 50%;
-        margin-right: 0px;
-        margin-left: 20px;
-    }
+//     .timeline__card {
+//         max-width: 160px;
+//         position: absolute;
+//         left: 50%;
+//         margin-right: 0px;
+//         margin-left: 20px;
+//     }
 
-    .timeline__card[data-pos="left"] {
-        left: 0;
-        margin-right: 20px;
-        margin-left: 0px;
-    }
-}
+//     .timeline__card[data-pos="left"] {
+//         left: 0;
+//         margin-right: 20px;
+//         margin-left: 0px;
+//     }
+// }
 
-// MOBILE VIEW
-@media only screen and (max-width: 767px) {
+// // MOBILE VIEW
+// @media only screen and (max-width: 767px) {
 
-    .timeline:after {
-        content: 'timeline__line';
-        color: transparent;
-        position: absolute;
-        height: $timeline-height;
-        width: 2px;
-        left: 12px;
-        background-color: $color-gray;
-    }
+//     .timeline:after {
+//         content: 'timeline__line';
+//         color: transparent;
+//         position: absolute;
+//         height: $timeline-height;
+//         width: 2px;
+//         left: 12px;
+//         background-color: $color-gray;
+//     }
 
-    .timeline {
-        position: relative;
-        max-width: 234px;
-    }
+//     .timeline {
+//         position: relative;
+//         max-width: 234px;
+//     }
 
-    .timeline__card {
-        max-width: 12px;
-        position: absolute;
-        left: 50%;
-        margin-right: 0px;
-        margin-left: 0px;
-    }
-}
+//     .timeline__card {
+//         max-width: 12px;
+//         position: absolute;
+//         left: 50%;
+//         margin-right: 0px;
+//         margin-left: 0px;
+//     }
+// }
