@@ -19,11 +19,11 @@ title: Owen Dostie
         {% include navbar.html %}
         
         <main>
-            <div class="bg-gradient"></div>
-            <div class="bg-grain"></div>
+            <!-- <div class="bg-gradient"></div> -->
+            <!-- <div class="bg-grain"></div> -->
             <!-- MAIN CONTENT -->
             <content>
-                <div id="print">Print:</div>
+                <div id="print"></div>
                 <div class="timeline">
                     <div class="timeline__card" data-begin="07/01/2021" data-end="07/23/2021" data-pos="left">
                         <div class="timeline__card-body" style="margin:0">
@@ -99,7 +99,7 @@ title: Owen Dostie
 
                         const tlmiddle = Date.parse(document.getElementsByClassName('timeline__card')[0].dataset.end)
 
-                        document.getElementById("print").innerHTML = tlmiddle;
+                        // document.getElementById("print").innerHTML = tlmiddle;
 
                         // ADD COLORS & ORGANIZE TIMELINE
                         const colors = ['brown','cadetblue','seagreen','hotpink','sandybrown','slateblue']
