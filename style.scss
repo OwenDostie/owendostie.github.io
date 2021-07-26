@@ -1,5 +1,4 @@
 ---
-
 ---
 
 // COLORS
@@ -7,7 +6,7 @@ $color-black: #000;
 $color-white: #fff;
 $color-offwhite: #eeeeee;
 $color-gray: #807e7e;
-$color-blue: rgb(0, 109, 251); 
+$color-blue: rgb(0, 109, 251);
 $text-color: black;
 $tl-color1: brown;
 $tl-color2: cadetblue;
@@ -28,7 +27,7 @@ body {
         display: inline-block;
         border-bottom: 1px solid transparent;
         transition: border-bottom 0.5s;
-        
+
         &:hover {
             border-bottom: 1px solid $color-blue;
         }
@@ -45,7 +44,7 @@ content {
 
     width: 100%;
     padding-top: 1em;
-    
+
     h3 {
         padding-top: 2em;
     }
@@ -59,11 +58,15 @@ h1 {
     margin-top: 0px;
 }
 
+h2 {
+    font-weight: lighter;
+}
+
 h3 {
     // display: block;
     text-align: center;
     // justify-content: center;
-    width: 100%
+    width: 100%;
 }
 
 li {
@@ -84,24 +87,25 @@ ul li:before {
     background-image: url("/img/film_grain.gif");
     background-size: 100% 100%;
     position: fixed;
-    top: 0px; 
+    top: 0px;
     left: 0px;
     opacity: 0.06;
     height: 100vh;
     width: 100vw;
-    content: '';
+    content: "";
     z-index: -1;
 }
 
 .bg-gradient {
-    background: radial-gradient(white,white,white, black);
+    background: radial-gradient(white, white, white, black);
     background-size: 100% 100%;
-    width: 100vw; height: 100vh;
-    position: fixed;    
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
     opacity: 0.12;
-    top: 0px; 
+    top: 0px;
     left: 0px;
-    content: '';
+    content: "";
     z-index: -1;
 }
 
@@ -151,7 +155,9 @@ ul li:before {
     padding-top: 12px;
     // border-bottom: 1px solid $color-offwhite;
 
-    .navbar__contact-icon, .navbar__menu-item, .navbar__menu-separator {
+    .navbar__contact-icon,
+    .navbar__menu-item,
+    .navbar__menu-separator {
         box-sizing: border-box;
         margin: 6px;
         margin-top: auto;
@@ -207,7 +213,7 @@ ul li:before {
     float: left;
     width: 100%;
     margin: 2em;
-    
+
     .navbar__title {
         justify-content: left;
         padding-top: 0px;
@@ -216,17 +222,17 @@ ul li:before {
 }
 
 // TIMELINE CONSTANTS
-$timeline-height: 660px;
-$timeline-width: 500px; //576px;
-$timeline-line-width: 12px;
+$timeline-height: 640px;
+$timeline-width: 800px; //500px; //576px;
+$timeline-line-width: 20px;
 
 // DEFAULT TIMELINE BEHAVIOR
 .timeline {
-    min-height: $timeline-height;
-    max-width: $timeline-width;
     display: flex;
+    flex-direction: column;
 
-    .timeline__left, .timeline__right {
+    .timeline__left,
+    .timeline__right {
         position: relative;
         margin: 0;
         height: 100%;
@@ -234,24 +240,90 @@ $timeline-line-width: 12px;
     }
 }
 
+.timeline__header,
+.timeline__footer {
+    margin: 0;
+    width: 100%;
+    flex-basis: 100%;
+
+    text-align: center;
+}
+
+.timeline__body {
+    margin: 0;
+    min-height: $timeline-height;
+    max-width: $timeline-width;
+    display: flex;
+    flex-direction: row;
+}
+
 .timeline__line {
-    width: 4px;
+    position: relative;
+    width: 2px;
     height: $timeline-height;
-    background-color: $color-black;
+    background-color: $color-gray;
+    opacity: 0.2;
     border-radius: 40%;
 
-    margin: 0 ($timeline-line-width - 4)/2;
+    margin: 0 ($timeline-line-width - 2)/2;
 
-    content: 'timeline__line';
+    content: "timeline__line";
     color: transparent;
+
+    &:before, 
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -$timeline-line-width/2;
+        width: $timeline-line-width;
+    }
+
+    &:hover {
+        .timeline__line--marker {
+            visibility: visible;
+        }
+    }
+}
+
+
+.timeline__line--marker {
+    position: absolute;
+    visibility: hidden;
+    top: 0; 
+    left: 0;
+    margin: 0;
+    background-color: $color-gray;
+    border-color: black;
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translate(-4px, -4px);
 }
 
 .timeline__left {
-    .timeline__item > .timeline__item--marker
-     {
+    .timeline__item--label {
+        text-align: right;
+        padding-right: 6px;
+    }
+    .timeline__item > .timeline__item--marker {
         border-right: 0px;
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
+    }
+}
+
+.timeline__right {
+    .timeline__item--label {
+        text-align: left;
+        padding-left: 6px;
+    }
+    .timeline__item > .timeline__item--marker {
+        border-left: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
     }
 }
 
@@ -260,14 +332,30 @@ $timeline-line-width: 12px;
     display: flex;
     flex-direction: row;
     top: 0;
-    left: 0;  
+    left: 0;
     width: 100%;
-    height: 100px;
+    min-height: 8px;
     margin: 0;
-    border: 1px solid red;
+
+    // INTERACTION
+    user-select: none;
+    &:hover {
+        cursor: pointer;
+
+        h2,
+        p {
+            font-weight: bold;
+        }
+
+        .timeline__item--marker {
+            border-width: 3px;
+        }
+    }
 }
 
 .timeline__item--label {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     height: 100%;
     margin: 0;
@@ -276,36 +364,33 @@ $timeline-line-width: 12px;
     justify-content: center;
     align-content: center;
 
-    h2 {
-        text-align: right;
+    h2,
+    p {
         margin: 0;
         padding-top: 0px;
-        padding-right: 6px;
+    }
 
-        user-select: none;
-        font-weight: lighter;
-
-        &:hover {
-            font-weight: bold;
-        }
+    p {
+        font-style: italic;
+        transform: translateY(-6px);
     }
 }
 
 .timeline__item--marker {
+    opacity: 0.8;
     margin-left: auto;
     height: 100%;
     margin: 0;
-    width: 8px;
-    border: black solid 1px;
-    border-radius: 4px;
-    transform: translateY(-1px)
+    width: 3px;
+    border: $color-black solid 2px;
+    background-color: $color-black;
+    border-radius: 3px;
+    transform: translateY(-1px);
 }
-
-
 
 .timeline__card {
     // retro look
-    //filter: saturate(0.5) sepia(1); 
+    //filter: saturate(0.5) sepia(1);
     // transition: filter 0.5s;
 
     // create roundrect background w/ shadow
@@ -347,7 +432,6 @@ $timeline-line-width: 12px;
 }
 
 .timeline__card-body {
-
     // horizontally center body and add small margins
     text-align: center;
     min-width: 130px;
@@ -357,7 +441,6 @@ $timeline-line-width: 12px;
     color: black;
 
     user-select: none;
-
 
     h2 {
         padding-top: 0px;
