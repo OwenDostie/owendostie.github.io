@@ -26,14 +26,14 @@ title: Owen Dostie
                 <div class="timeline">
                     
                     <div class="timeline__header">
-                        <p id="print"></p>
+                        <p id="print">2021</p>
                     </div>
 
                     <div class="timeline__body">
                         <div class="timeline__left">
                             <a class="timeline__item" style="color:crimson" data-begin="03/01/2019" data-end="present"
                             href=https://github.com/OwenDostie/florida-charter-schools target="_blank">
-                                <div class="timeline__item--label"><h2>Charter Research</h2><p></p></div>
+                                <div class="timeline__item--label"><h2>Charter School Research</h2><p></p></div>
                                 <div class="timeline__item--marker" style="border-color:crimson; background-color:crimson"></div>
                                 <!-- http://www.gifsmos.com/ -->
                             </a>
@@ -56,9 +56,26 @@ title: Owen Dostie
                             </div>
                         </div>
 
-                        <div class="timeline__line">
-                            <div class="timeline__line--marker" id="timeline__line--marker"></div>
+                        <!-- INTERACTIVE TIMELINE -->
+                        <div class="timeline__line" id="timeline__line" 
+                            onmousemove=
+                            "var rect=this.getBoundingClientRect();
+                            const marker = document.getElementById('timeline__line--marker');
+                            const markerText = document.getElementById('timeline__line--marker-text');
+                            marker.style.top=String(event.pageY)+'px'; 
+                            marker.style.opacity=1;
+                            markerText.style.top=String(event.pageY)+'px';
+                            markerText.innerHTML=new Date((today - 70)/tlScale/1000);
+                            markerText.style.opacity=1;" 
+
+
+                            onmouseout=
+                            "const marker = document.getElementById('timeline__line--marker');
+                            const markerText = document.getElementById('timeline__line--marker-text');
+                            marker.style.opacity=0; markerText.style.opacity=0;">
                         </div>
+                        <div class="timeline__line--marker" id="timeline__line--marker" style="left:50%"></div>
+                        <div class="timeline__line--marker-text" id="timeline__line--marker-text" style="left:50%"></div>
 
                         <div class="timeline__right">
                             <div class="timeline__item" data-begin="7/1/2021" data-end="present">
@@ -82,7 +99,7 @@ title: Owen Dostie
                     </div>
 
                     <div class="timeline__footer">
-                        <p>August 2016</p>
+                        <p>2016</p>
                     </div>
 
                     </div>

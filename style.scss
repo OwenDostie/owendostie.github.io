@@ -2,7 +2,7 @@
 ---
 
 // COLORS
-$color-black: #000;
+$color-black: #3a3a3a;
 $color-white: #fff;
 $color-offwhite: #eeeeee;
 $color-gray: #807e7e;
@@ -245,9 +245,21 @@ $timeline-line-width: 20px;
     margin: 0;
     width: 100%;
     flex-basis: 100%;
+    color: $color-gray;
 
     text-align: center;
+    user-select: none;
 }
+
+// .timeline__header {
+//     &:after {
+//         height: 2px;
+//         width: 100%;
+//         background-color: $color-gray solid 2px;
+//         opacity: 0.3;
+//         border-radius: 80%;
+//     }
+// }
 
 .timeline__body {
     margin: 0;
@@ -261,8 +273,8 @@ $timeline-line-width: 20px;
     position: relative;
     width: 2px;
     height: $timeline-height;
-    background-color: $color-gray;
-    opacity: 0.2;
+    background-color: rgb(230, 230, 230);
+
     border-radius: 40%;
 
     margin: 0 ($timeline-line-width - 2)/2;
@@ -278,29 +290,43 @@ $timeline-line-width: 20px;
         bottom: 0;
         left: -$timeline-line-width/2;
         width: $timeline-line-width;
+        z-index: 11;
     }
 
-    &:hover {
-        .timeline__line--marker {
-            visibility: visible;
-        }
-    }
+    // &:hover {
+    //     .timeline__line--marker, .timeline__line--marker-text {
+    //         opacity: 1;
+    //     }
+    // }
 }
 
 
 .timeline__line--marker {
-    position: absolute;
-    visibility: hidden;
-    top: 0; 
-    left: 0;
+    position: fixed;
     margin: 0;
     background-color: $color-gray;
-    border-color: black;
-    opacity: 1;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    transform: translate(-4px, -4px);
+    transform: translate(-5px, -5px);
+
+    border-color: black;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.timeline__line--marker-text {
+    position: fixed;
+    margin: 0;
+    transform: translate(-4px, -30px);
+    height: 20px;
+    color: $color-black;
+    background-color: $color-offwhite;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    user-select: none;
+    z-index: 10;
 }
 
 .timeline__left {
@@ -336,6 +362,7 @@ $timeline-line-width: 20px;
     width: 100%;
     min-height: 8px;
     margin: 0;
+    color: $color-gray;
 
     // INTERACTION
     user-select: none;
@@ -344,11 +371,12 @@ $timeline-line-width: 20px;
 
         h2,
         p {
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .timeline__item--marker {
             border-width: 3px;
+            border-radius: 8px;
         }
     }
 }
@@ -366,6 +394,7 @@ $timeline-line-width: 20px;
 
     h2,
     p {
+        font-weight: 50;
         margin: 0;
         padding-top: 0px;
     }
@@ -382,8 +411,8 @@ $timeline-line-width: 20px;
     height: 100%;
     margin: 0;
     width: 3px;
-    border: $color-black solid 2px;
-    background-color: $color-black;
+    border: $color-gray solid 2px;
+    background-color: $color-gray;
     border-radius: 3px;
     transform: translateY(-1px);
 }
