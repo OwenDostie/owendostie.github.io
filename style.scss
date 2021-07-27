@@ -286,18 +286,12 @@ $timeline-line-width: 20px;
     &:after {
         content: '';
         position: absolute;
-        top: 0;
-        bottom: 0;
+        top: -36px;
+        bottom: -36px;
         left: -$timeline-line-width/2;
         width: $timeline-line-width;
         z-index: 11;
     }
-
-    // &:hover {
-    //     .timeline__line--marker, .timeline__line--marker-text {
-    //         opacity: 1;
-    //     }
-    // }
 }
 
 
@@ -327,6 +321,7 @@ $timeline-line-width: 20px;
     transition: opacity 0.3s;
     user-select: none;
     z-index: 10;
+    pointer-events: none;
 }
 
 .timeline__left {
@@ -375,8 +370,8 @@ $timeline-line-width: 20px;
         }
 
         .timeline__item--marker {
-            border-width: 3px;
-            border-radius: 8px;
+            border-width: 4px;
+            border-radius: 16px;
         }
     }
 }
@@ -391,6 +386,7 @@ $timeline-line-width: 20px;
     // // PUT TEXT NEXT TO MARKER
     justify-content: center;
     align-content: center;
+    white-space: nowrap;
 
     h2,
     p {
@@ -398,7 +394,7 @@ $timeline-line-width: 20px;
         margin: 0;
         padding-top: 0px;
     }
-
+    
     p {
         font-style: italic;
         transform: translateY(-6px);
@@ -414,77 +410,90 @@ $timeline-line-width: 20px;
     border: $color-gray solid 2px;
     background-color: $color-gray;
     border-radius: 3px;
+    transition: border-radius 0.3s, border-width 0.3s;
     transform: translateY(-1px);
 }
 
-.timeline__card {
-    // retro look
-    //filter: saturate(0.5) sepia(1);
-    // transition: filter 0.5s;
-
-    // create roundrect background w/ shadow
-    // background-color: rgb(100, 100, 100);
-    // border-radius: 9px;
-    // box-shadow: 0 0 12px black;
-
-    // minimum card size
-    min-width: 80px;
-    min-height: 32px;
-
-    // center text vertically & horizontally
-    display: grid;
-    place-items: center;
-    margin: 0 auto;
-    position: relative;
-
-    &:hover {
-        // opacity: 1;
-        z-index: 10;
-        //filter: sepia(0.7);
-    }
-
-    &:active {
-        border: inset black 1px;
-    }
-
-    // TIMTLINE INDICATOR DOT
-    // &:before {
-    //     content: '';
-    //     position: absolute;
-    //     left: 0;
-    //     height: 15px;
-    //     width: 15px;
-    //     background-color: $color-gray;
-    //     border-radius: 50%;
-    //     top: 0;
-    // }
+.timeline__item--padding {
+    flex: 3;
+    height: 100%;
+    margin: 0;
 }
 
-.timeline__card-body {
-    // horizontally center body and add small margins
-    text-align: center;
-    min-width: 130px;
-    margin: 6px;
 
-    // default to gray before js
-    color: black;
 
-    user-select: none;
 
-    h2 {
-        padding-top: 0px;
-        font-weight: lighter;
-        margin: 0;
-    }
-    p {
-        font-style: italic;
-        margin: 0;
-    }
-}
 
-.timeline__card-content {
-    display: none;
-}
+// OBSOLETE CODE
+
+// .timeline__card {
+//     // retro look
+//     //filter: saturate(0.5) sepia(1);
+//     // transition: filter 0.5s;
+
+//     // create roundrect background w/ shadow
+//     // background-color: rgb(100, 100, 100);
+//     // border-radius: 9px;
+//     // box-shadow: 0 0 12px black;
+
+//     // minimum card size
+//     min-width: 80px;
+//     min-height: 32px;
+
+//     // center text vertically & horizontally
+//     display: grid;
+//     place-items: center;
+//     margin: 0 auto;
+//     position: relative;
+
+//     &:hover {
+//         // opacity: 1;
+//         z-index: 10;
+//         //filter: sepia(0.7);
+//     }
+
+//     &:active {
+//         border: inset black 1px;
+//     }
+
+//     // TIMTLINE INDICATOR DOT
+//     // &:before {
+//     //     content: '';
+//     //     position: absolute;
+//     //     left: 0;
+//     //     height: 15px;
+//     //     width: 15px;
+//     //     background-color: $color-gray;
+//     //     border-radius: 50%;
+//     //     top: 0;
+//     // }
+// }
+
+// .timeline__card-body {
+//     // horizontally center body and add small margins
+//     text-align: center;
+//     min-width: 130px;
+//     margin: 6px;
+
+//     // default to gray before js
+//     color: black;
+
+//     user-select: none;
+
+//     h2 {
+//         padding-top: 0px;
+//         font-weight: lighter;
+//         margin: 0;
+//     }
+//     p {
+//         font-style: italic;
+//         margin: 0;
+//     }
+// }
+
+// .timeline__card-content {
+//     display: none;
+// }
 
 // WIDESCREEN VIEW
 // @media only screen and (min-width: 768px) {
