@@ -1,14 +1,19 @@
 --------------------------------------------
 To-do list
 --------------------------------------------
-- min text size for 4k displays. or some form of automatic text scaling.
-- choose a better font? (google fonts w embed link)
-- test it out on different resolutions/browsers. landscape mode on mobile?
-    - mobile view still needs work on the centering and positioning of text. 
+
+- Fix mouseover behavior
+- Add summary cards
+    - descriptions that highlight my experience
+- add skill bubbles with physics simulation
+- revamp site according to cam's mockup????
+
+
 DO EVENTUALLY
 - navbar, floating
 - add blog summary page w/ cards https://codepen.io/mariohernandez/pen/ddWZXP?editors=1100
-- syntax highlighting      
+- syntax highlighting
+- create a blog post template from scratch, either a markdown template or something else that works well with Jupyter/R
 
 --------------------------------------------
 Notes
@@ -18,6 +23,8 @@ C:\Users\owend\Desktop\owendostie.github.io (jekyll serve, py -m jupyter noteboo
 
     {% capture md %}{% include_relative /markdown/spotify_analysis.md %}{% endcapture %}
     {{ md | markdownify }}          https://jekyllrb.com/docs/liquid/filters/
+
+https://observablehq.com/
 --------------------------------------------
 Site description
 --------------------------------------------
@@ -30,8 +37,6 @@ Viewers of my site:
     - Potential employers 
     - My friends
     - Job recruiters / potential employers
-    - 
-
 
 Navbar is always present, when scrolling down collapses into a hamburger menu
     Owen dostie
