@@ -15,6 +15,9 @@ $tl-color4: hotpink;
 $tl-color5: sandybrown;
 $tl-color6: slateblue;
 
+// FONTS
+@import url(//fonts.googleapis.com/css?family=Manrope);
+
 * {
     list-style: none;
     text-decoration: none;
@@ -22,6 +25,7 @@ $tl-color6: slateblue;
 
 body {
     background-color: $color-white;
+    font-family: Manrope;
     li > a {
         color: $color-blue;
         display: inline-block;
