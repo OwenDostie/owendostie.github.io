@@ -1,0 +1,222 @@
+<div class="timeline">
+    
+    <div class="timeline__header">
+        <p id="print">2021</p>
+    </div>
+
+    
+    <div class="timeline__body">
+        <div class="timeline__left">
+            <div class="timeline__item" style="z-index:1; color:orangered"data-begin="7/10/2021" data-end="7/10/2021"
+            href=https://github.com/OwenDostie/spotify-data target="_blank">
+                <div class="timeline__item--padding"></div> 
+                <div class="timeline__item--label" style="z-index: 10;">
+                    <h2>ML Top 50 Albums</h2>
+                    <div class="timeline__item--description">
+                        <p>I completed the Google Data Analytics Professional certificate on 7/10/21. 
+                        For the capstone project I created a machine learning model to tell me what my 50 favorite albums are. </p></div>
+                </div>
+                <div class="timeline__item--marker" style="margin-right:12px; border-color:orangered; background-color:orangered"></div>
+            </div>
+            <div class="timeline__item" style="color:crimson" data-begin="03/01/2019" data-end="present"
+            href=https://github.com/OwenDostie/florida-charter-schools target="_blank">
+                <div class="timeline__item--padding"></div> 
+                <div class="timeline__item--label">
+                    <h2>Charter School Research</h2>
+                    <div class="timeline__item--description">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis eius temporibus nisi facilis? Eos facilis ipsam modi est, dolores totam, quibusdam, temporibus minus perspiciatis odio repudiandae aut nihil vitae ullam.</p>
+                    </div>
+                </div>
+                <div class="timeline__item--marker" style="border-color:crimson; background-color:crimson"></div>
+                <!-- http://www.gifsmos.com/ -->
+            </div>
+            <!-- <div class="timeline__item" style="z-index: 2" data-begin="09/1/2019" data-end="6/15/2021">
+                <div class="timeline__item--label"><h2>Academic Tutor</h2><p></p></div>
+                <div class="timeline__item--marker"></div>
+            </div> -->
+            <div class="timeline__item" style="" data-begin="6/1/2018" data-end="7/1/2018">
+                <div class="timeline__item--padding"></div> 
+                <div class="timeline__item--label" style="">
+                    <h2 style="font-size:20px;">Fullstack Developer</h2>
+                    <p></p>
+                    <div class="timeline__item--description">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis eius temporibus nisi facilis? Eos facilis ipsam modi est, dolores totam, quibusdam, temporibus minus perspiciatis odio repudiandae aut nihil vitae ullam.</p>
+                    </div>
+                </div>
+                <div class="timeline__item--marker"></div>
+            </div>
+            <div class="timeline__item" style="" data-begin="6/1/2017" data-end="8/15/2017">
+                <div class="timeline__item--padding"></div> 
+                <div class="timeline__item--label">
+                    <h2 style="font-size:20px;">Backend Developer</h2>
+                    <p>ERA Grizzard Real Estate</p>
+                    <div class="timeline__item--description">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis eius temporibus nisi facilis? Eos facilis ipsam modi est, dolores totam, quibusdam, temporibus minus perspiciatis odio repudiandae aut nihil vitae ullam.</p>
+                    </div>
+                </div>
+                <div class="timeline__item--marker"></div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE TIMELINE LINE-->
+        <div class="timeline__line" id="timeline__line" 
+            onmousemove=
+            "
+            if (bgFade.style.opacity != 0) {
+                document.getElementById('print').innerHTML = 'testo';
+            } else {
+            var rect=this.getBoundingClientRect();
+            var markerPos = Math.max(Math.min(event.pageY,rect.bottom), rect.top);
+            const marker = document.getElementById('timeline__line--marker');
+            const markerText = document.getElementById('timeline__line--marker-text');
+            marker.style.top=String(markerPos)+'px'; 
+            marker.style.left=String(rect.left+1)+'px';
+            marker.style.opacity=1;
+            markerText.style.top=String(markerPos)+'px';
+            markerText.style.left=String(rect.left-4)+'px';
+            var markerDate=new Date((rect.height-(markerPos-rect.top))/tlScale+timelineStart);
+            markerText.innerHTML=markerDate.toLocaleString('default', { month: 'long' })+' '+markerDate.getFullYear();
+
+            //((today)*tlScale);
+            markerText.style.opacity=1;}" 
+
+            onmouseout=
+            "const marker = document.getElementById('timeline__line--marker');
+            const markerText = document.getElementById('timeline__line--marker-text');
+            marker.style.opacity=0; markerText.style.opacity=0;">
+        </div>
+        <div class="timeline__line--marker" id="timeline__line--marker" style="left:50%"></div>
+        <div class="timeline__line--marker-text" id="timeline__line--marker-text" style="left:50%"></div>
+
+        <div class="timeline__right">
+            <div class="timeline__item" data-begin="7/1/2021" data-end="present">
+                <div class="timeline__item--marker"></div>
+                <div class="timeline__item--label">
+                    <h2 style="font-size:20px;">Frontend Developer</h2>
+                    <p></p>
+                    <div class="timeline__item--description">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis eius temporibus nisi facilis? Eos facilis ipsam modi est, dolores totam, quibusdam, temporibus minus perspiciatis odio repudiandae aut nihil vitae ullam.</p>
+                    </div>
+                </div>
+                <div class="timeline__item--padding"></div> 
+            </div>
+            <div class="timeline__item" style="" data-begin="12/1/2020" data-end="2/20/2021">
+                <div class="timeline__item--marker"></div>
+                <div class="timeline__item--label">
+                    <h2 style="font-size:20px;">IoT Cloud Developer</h2>
+                    <p>STMicroelectronics</p>
+                    <div class="timeline__item--description">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis eius temporibus nisi facilis? Eos facilis ipsam modi est, dolores totam, quibusdam, temporibus minus perspiciatis odio repudiandae aut nihil vitae ullam.</p></div>
+                </div>
+                <div class="timeline__item--padding"></div> 
+            </div>
+            <div class="timeline__item" style="z-index: 1; color:slateblue" data-begin="10/1/2019" data-end="5/16/2020">
+                <div class="timeline__item--marker" style="margin-left:12px; border-color:slateblue; background-color:slateblue"></div>
+                <div class="timeline__item--label">
+                    <h2>Data Science Team Lead</h2>
+                    <p>Refresco</p>
+                    <div class="timeline__item--description">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis eius temporibus nisi facilis? Eos facilis ipsam modi est, dolores totam, quibusdam, temporibus minus perspiciatis odio repudiandae aut nihil vitae ullam.</p>
+                    </div>
+                </div>
+                <div class="timeline__item--padding"></div> 
+            </div>
+            <div class="timeline__item" style="color: royalblue" data-begin="08/21/2016" data-end="05/23/2020">
+                <div class="timeline__item--marker" style="border-color:royalblue; background-color:royalblue"></div>
+                <div class="timeline__item--label">
+                    <h2>B.S. Data Science</h2>
+                    <p>Florida Polytechnic University</p>
+                    <div class="timeline__item--description">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis eius temporibus nisi facilis? Eos facilis ipsam modi est, dolores totam, quibusdam, temporibus minus perspiciatis odio repudiandae aut nihil vitae ullam.</p>
+                    </div>
+                </div>
+                <div class="timeline__item--padding"></div> 
+                
+                <!-- https://www.mastersindatascience.org/schools/23-great-schools-with-masters-programs-in-data-science/ -->
+            </div>
+        </div>
+    </div>
+
+    <div class="timeline__footer">
+        <p>2016</p>
+    </div>
+
+    </div>
+    <!-- https://github.com/bunsenmurder/ML-Project-Attendance-Counter -->
+</div>
+
+<!-- INTERACTIVE TIMELINE ITEMS -->
+<script>
+    // GET CURRENT DATE
+    const today = new Date().getTime();
+    const timelineStart = new Date(2016, 8, 1).getTime();
+    const timelineHeight = document.getElementsByClassName('timeline__body')[0].clientHeight;
+    const tlScale = 1/(today - timelineStart)*timelineHeight
+
+    // document.getElementById("print").innerHTML = tlmiddle;
+
+    // ADD COLORS & ORGANIZE TIMELINE
+    const colors = ['crimson','cadetblue','darkseagreen','purple','slateblue','forestgreen']
+    // const colors = ['red','orange','goldenrod','green','blue','indigo','violet']
+    var items = document.querySelectorAll(".timeline__item");
+    for(var i=0; i<items.length; i++){
+
+        // items[i].style.color = colors[i % colors.length]
+            // items[i].children.getElementsByClassName('timeline__item--marker').style.borderColor = colors[i % colors.length]
+
+        // IF THE ITEM HAS A START DATE MOVE IT AROUND ON THE TIMELINE
+        if (typeof items[i].dataset.begin !== 'undefined') {
+            var dateEnd, dateBegin = 0
+            if (items[i].dataset.end == 'present') {
+                dateEnd = today;
+            }
+            else {
+                dateEnd = Math.min(Date.parse(items[i].dataset.end), today);
+            }
+            dateBegin = Math.max(Date.parse(items[i].dataset.begin), timelineStart);
+
+            items[i].style.top = String(Math.round((today-dateEnd)*tlScale)) + 'px'
+            items[i].style.height = String(Math.round((dateEnd - dateBegin)*tlScale)) + 'px'
+        }
+
+    }
+
+    // ADD INTERACTION TO timeline__item
+    const bgFade = document.getElementById("bg-fade");
+    items = document.querySelectorAll(".timeline__item--label");
+    for(var i=0; i<items.length; i++){
+        items[i].onmouseover = function(target){
+            if (event.target.classList.contains("timeline__item--description")) {
+                this.parentElement.classList.remove("timeline__item--hover");
+            } else {this.parentElement.classList.add("timeline__item--hover");}
+        }
+        items[i].onmouseleave = function(){
+            this.parentElement.classList.remove("timeline__item--hover");
+        }
+        items[i].addEventListener('click',function(event){
+            if (this.parentElement.classList.contains("timeline__item--focused")) {
+                this.parentElement.classList.remove("timeline__item--focused");
+            }
+            this.parentElement.classList.add("timeline__item--focused");
+            // event.currentTarget.getElementsByClassName("timeline__item--description").getElementsByTagName('p').firstChild.nodeValue = 
+            console.log()
+            bgFade.classList.add("bg-fade--visible");
+        })
+        // DIFFERENT BEHAVIOR WHEN CLICKING DESCRIPTIVE TEXT
+        // items[i].getElementsByClassName("timeline__item--description")[0].addEventListener('click',function(event){
+        // })
+    }
+
+    // REMOVE FOCUS WHEN CLICKING AWAY FROM ITEM
+    document.addEventListener("mousedown",function(event){
+        items = document.querySelectorAll(".timeline__item");
+        bgFade.classList.remove("bg-fade--visible");
+        for (var i=0; i<items.length; i++){
+            items[i].classList.remove("timeline__item--focused");
+        }
+    }, true)
+    
+    // SHIFT FOCUS TO CLICKED ITEM
+    
+
+</script>
