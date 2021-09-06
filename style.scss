@@ -155,36 +155,6 @@ ul li:before {
     }
 }
 
-// SITE UNDER MAINTENANCE //
-.content--maintenance {
-
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    max-width: 540px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    div {
-        padding: 20px;
-    }
-    h2 {
-        text-align: center;
-    }
-    a {
-        color: blue;
-        border-bottom: 1px solid transparent;
-        transition: border-bottom 0.5s;
-
-        &:hover {
-            border-bottom: 1px solid blue;
-        }
-    }
-}
-
 // NAVBAR //
 .navbar {
     display: block;
@@ -291,6 +261,7 @@ $timeline-line-width: 20px;
         position: relative;
         margin: 0;
         height: 100%;
+        flex: 1;
         width: ($timeline-width/2 - $timeline-line-width);
     }
 }
@@ -395,6 +366,9 @@ $timeline-line-width: 20px;
     }
     .timeline__item--description {
         padding-right: 10px;
+        p {
+            padding-left: 6px;
+        }
     }
 }
 
@@ -427,7 +401,9 @@ $tlil--transitionTime: 0.5s;
     white-space: nowrap;
 
     // ADD TRANSITIONS FOR WHEN ITS FOCUSED
-    transition: background-color $tlil--transitionTime, box-shadow $tlil--transitionTime,
+    transition: background-color $tlil--transitionTime, 
+        box-shadow $tlil--transitionTime, 
+        flex-grow $tlil--transitionTime,
         border-radius $tlil--transitionTime * 2;
 
     h2,
@@ -450,10 +426,11 @@ $tlil--transitionTime: 0.5s;
         font-weight: 600;
     }
 
-    // .timeline__item--marker {
-    //     border-width: 4px;
-    //     border-radius: 16px;
-    // }
+    .timeline__item--marker {
+        border-top-left-radius: 16px;
+        border-width: 4px;
+        border-radius: 16px !important;
+    }
 }
 
 .timeline__item--hover {
@@ -467,12 +444,12 @@ $tlil--transitionTime: 0.5s;
         background-color: $color-white;
         border-radius: 4px;
         box-shadow: 0 0 0px 8px $color-white;
-        flex: 3;
-        width: 100%;
-    
+        flex-grow: 4;   
+        z-index: 30 !important;
     }
     .timeline__item--marker {
         height: 0;
+        z-index: 29 !important;
     }
     .timeline__item--description {
         visibility: visible;
