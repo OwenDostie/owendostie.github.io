@@ -120,7 +120,7 @@ ul li:before {
     height: 300vh;
     position: fixed;
     opacity: 0;
-    transition: opacity 0.7s;
+    transition: opacity 0.6s;
     top: 0px;
     left: 0px;
     content: "";
@@ -129,7 +129,7 @@ ul li:before {
 }
 
 .bg-fade--visible {
-    opacity: 0.6;
+    opacity: 0.8;
     z-index: 10;
     backdrop-filter: blur(50px);
 }
@@ -248,7 +248,7 @@ ul li:before {
 
 // TIMELINE CONSTANTS
 $timeline-height: 640px;
-$timeline-width: 800px; //500px; //576px;
+$timeline-width: 660px; //500px; //576px;
 $timeline-line-width: 20px;
 
 // DEFAULT TIMELINE BEHAVIOR
@@ -289,7 +289,10 @@ $timeline-line-width: 20px;
     position: relative;
     width: 2px;
     height: $timeline-height;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(192, 192, 192);
+    // background-color: $color-gray;
+    z-index: 11;
+
 
     border-radius: 40%;
 
@@ -306,7 +309,7 @@ $timeline-line-width: 20px;
         bottom: -36px;
         left: -$timeline-line-width/2;
         width: $timeline-line-width;
-        z-index: 11;
+        z-index: 12;
     }
 }
 
@@ -318,6 +321,7 @@ $timeline-line-width: 20px;
     height: 10px;
     border-radius: 50%;
     transform: translate(-5px, -5px);
+    z-index: 12;
 
     border-color: black;
     opacity: 0;
@@ -378,6 +382,7 @@ $timeline-line-width: 20px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    transition: flex-grow 0.5s;
     top: 0;
     left: 0;
     width: 100%;
@@ -388,7 +393,7 @@ $timeline-line-width: 20px;
     user-select: none;
 }
 
-$tlil--transitionTime: 0.5s;
+$tlil--transitionTime: 0s;
 .timeline__item--label {
     position: relative;
     margin: 0;
@@ -401,10 +406,8 @@ $tlil--transitionTime: 0.5s;
     white-space: nowrap;
 
     // ADD TRANSITIONS FOR WHEN ITS FOCUSED
-    transition: background-color $tlil--transitionTime, 
-        box-shadow $tlil--transitionTime, 
-        flex-grow $tlil--transitionTime,
-        border-radius $tlil--transitionTime * 2;
+    transition: background-color $tlil--transitionTime, box-shadow $tlil--transitionTime,
+        flex-grow $tlil--transitionTime, border-radius $tlil--transitionTime * 2;
 
     h2,
     p {
@@ -427,6 +430,7 @@ $tlil--transitionTime: 0.5s;
     }
 
     .timeline__item--marker {
+        width: 7px;
         border-top-left-radius: 16px;
         border-width: 4px;
         border-radius: 16px !important;
@@ -439,22 +443,30 @@ $tlil--transitionTime: 0.5s;
 
 .timeline__item--focused {
     z-index: 20 !important;
+    
 
     .timeline__item--label {
         background-color: $color-white;
         border-radius: 4px;
         box-shadow: 0 0 0px 8px $color-white;
-        flex-grow: 4;   
+        flex-grow: 20;
         z-index: 30 !important;
     }
     .timeline__item--marker {
-        height: 0;
-        z-index: 29 !important;
+        // height: 0;
+        z-index: 50 !important;
+        opacity: 1;
     }
     .timeline__item--description {
         visibility: visible;
         opacity: 1;
     }
+}
+
+.timeline__item--date {
+    margin-top: 0;
+    font-style: italic;
+    opacity: 0.8;
 }
 
 .timeline__item--description {
@@ -485,6 +497,23 @@ $tlil--transitionTime: 0.5s;
         white-space: normal;
     }
 
+    a {
+        color: $color-blue;
+        border-bottom: 1px solid transparent;
+        border-top: 1px solid transparent;
+        transition: border-bottom 0.5s, color 0.5s;
+
+        &:hover {
+            border-bottom: 1px solid $color-blue;
+        }
+
+        img {
+            &:hover {
+                border-bottom: 1px solid transparent;
+            }
+        }
+    }
+
     // HIDE DESCRIPTION UNTIL TRANSITION
     transition: opacity $tlil--transitionTime, visibility $tlil--transitionTime, background-color $tlil--transitionTime,
         box-shadow $tlil--transitionTime;
@@ -493,6 +522,7 @@ $tlil--transitionTime: 0.5s;
     user-select: text;
 }
 
+$tlim--transitionTime: 0.4s;
 .timeline__item--marker {
     opacity: 0.8;
     margin-left: auto;
@@ -501,9 +531,37 @@ $tlil--transitionTime: 0.5s;
     min-width: 3px;
     border: $color-gray solid 2px;
     background-color: $color-gray;
-    border-radius: 3px;
-    transition: border-radius 0.3s, border-width 0.3s, height $tlil--transitionTime;
+    border-radius: 5px;
+    
+    transition: border-radius $tlim--transitionTime, 
+        border-width $tlim--transitionTime, height $tlim--transitionTime, 
+        transform $tlim--transitionTime, width $tlim--transitionTime;
     // transform: translateY(1px);
+
+    width: 5px;
+    border-radius: 0px;
+    border-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-right: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.timeline__left > .timeline__item--focused {
+    .timeline__item--marker {
+        // transform: translateX($timeline-line-width/2 + 3);
+        border-radius: 16px !important;
+        border-width: 4px;
+    }
+}
+
+.timeline__right > .timeline__item--focused {
+    .timeline__item--marker {
+        // transform: translateX(-($timeline-line-width/2 + 3));
+        border-radius: 16px !important;
+        border-width: 4px;
+    }
 }
 
 .timeline__item--padding {
@@ -511,3 +569,13 @@ $tlil--transitionTime: 0.5s;
     height: 100%;
     margin: 0;
 }
+
+.timeline__item[data-bump="12x"] {
+    transform: translateX(12px)
+}
+
+.timeline__item[data-bump="-12x"] {
+    transform: translateX(-12px)
+}
+
+@import "style-mobile.scss"

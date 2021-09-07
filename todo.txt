@@ -2,7 +2,6 @@
 To-do list
 --------------------------------------------
 
-- Fix mouseover behavior
 - Add summary cards
     - descriptions that highlight my experience
 - add skill bubbles with physics simulation
