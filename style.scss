@@ -62,10 +62,6 @@ h1 {
     margin-top: 0px;
 }
 
-h2 {
-    font-weight: lighter;
-}
-
 h3 {
     // display: block;
     text-align: center;
@@ -100,12 +96,32 @@ ul li:before {
     z-index: -1;
 }
 
+.bg-animated {
+    margin: 0;
+    background-color: $color-white;
+    opacity: 0.2;
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -2;
+
+    .bg-animated__node {
+        position: relative;
+        background-color: $color-gray;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    }
+}
+
 .bg-gradient {
     background: radial-gradient(white, white, white, black);
     background-size: 100% 100%;
     width: 100vw;
     height: 100vh;
-    position: fixed;
+    position: relative;
     opacity: 0.12;
     top: 0px;
     left: 0px;
@@ -246,6 +262,48 @@ ul li:before {
     }
 }
 
+.about {
+    padding-top: 0;
+    margin-top: 0;
+    max-width: 400px;
+    height: 300px;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+
+    .about__text {
+        text-align: justify;
+        color: $color-black;
+
+        h3 {
+            margin-top: 1em;
+            padding-top: 0;
+        }
+    }
+    .about__arrowdown {
+        width: 120px;
+        height: 3em;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+        background: url(/img/arrowdown.svg);
+        background-size: 4em 4em;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        opacity: 0.3;
+        transition: opacity 0.1s;
+        &:hover {
+            opacity: 0.6;
+            cursor: pointer;
+        }
+    }
+}
+
 // TIMELINE CONSTANTS
 $timeline-height: 640px;
 $timeline-width: 660px; //500px; //576px;
@@ -264,6 +322,12 @@ $timeline-line-width: 20px;
         flex: 1;
         width: ($timeline-width/2 - $timeline-line-width);
     }
+}
+
+.timeline__title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .timeline__header,
@@ -291,7 +355,7 @@ $timeline-line-width: 20px;
     height: $timeline-height;
     background-color: rgb(192, 192, 192);
     // background-color: $color-gray;
-    z-index: 11;
+    z-index: 0;
 
 
     border-radius: 40%;
@@ -331,15 +395,18 @@ $timeline-line-width: 20px;
 .timeline__line--marker-text {
     position: fixed;
     margin: 0;
-    transform: translate(-4px, -30px);
+    width: 121px;
+    text-align: center;
+    transform: translate(-61px, -30px);
     height: 20px;
     color: $color-black;
-    background-color: $color-offwhite;
+    background-color: $color-white;
+    border: 2px solid $color-white;
     border-radius: 4px;
     opacity: 0;
     transition: opacity 0.3s;
     user-select: none;
-    z-index: 10;
+    z-index: 100;
     pointer-events: none;
 }
 
@@ -409,6 +476,10 @@ $tlil--transitionTime: 0s;
     transition: background-color $tlil--transitionTime, box-shadow $tlil--transitionTime,
         flex-grow $tlil--transitionTime, border-radius $tlil--transitionTime * 2;
 
+    h2 {
+        font-weight: lighter;
+    }
+
     h2,
     p {
         font-weight: 50;
@@ -431,9 +502,8 @@ $tlil--transitionTime: 0s;
 
     .timeline__item--marker {
         width: 7px;
-        border-top-left-radius: 16px;
-        border-width: 4px;
-        border-radius: 16px !important;
+        // border-width: 4px;
+        // border-radius: 16px !important;
     }
 }
 
@@ -548,22 +618,6 @@ $tlim--transitionTime: 0.4s;
     border-bottom-right-radius: 0px;
 }
 
-.timeline__left > .timeline__item--focused {
-    .timeline__item--marker {
-        // transform: translateX($timeline-line-width/2 + 3);
-        border-radius: 16px !important;
-        border-width: 4px;
-    }
-}
-
-.timeline__right > .timeline__item--focused {
-    .timeline__item--marker {
-        // transform: translateX(-($timeline-line-width/2 + 3));
-        border-radius: 16px !important;
-        border-width: 4px;
-    }
-}
-
 .timeline__item--padding {
     flex: 3;
     height: 100%;
@@ -580,6 +634,10 @@ $tlim--transitionTime: 0.4s;
 
 // @import "style-mobile.scss"
 
+///////////////////////////////////////////////////////////////////////////////
+/////////////////// MOBILE ONLY ///////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
 @media only screen and (max-width: 660px) {
     $timeline-width: 400px;
     $timeline-line-width: 20px;
@@ -590,6 +648,12 @@ $tlim--transitionTime: 0.4s;
         flex-direction: column;
         justify-content: left;
         align-items: left;
+    }
+
+    .about {
+        .about__text {
+            text-align: center;
+        }
     }
 
     .navbar__title {
@@ -612,6 +676,7 @@ $tlim--transitionTime: 0.4s;
         margin-left: $timeline-line-width/2;
         text-align: left;
         user-select: none;
+
     }
     
     .timeline__body {
@@ -639,16 +704,6 @@ $tlim--transitionTime: 0.4s;
                 text-align: left;
                 padding-left: 6px;
             }
-            .timeline__item > .timeline__item--marker {
-                width: 5px;
-                border-radius: 0px;
-                border-left: 0px;
-                border-top-left-radius: 0px;
-                border-bottom-left-radius: 0px;
-                border-right: 0px;
-                border-top-right-radius: 0px;
-                border-bottom-right-radius: 0px;
-            }
             
             .timeline__item--description {
                 padding-right: 10px;
@@ -656,13 +711,6 @@ $tlim--transitionTime: 0.4s;
                     padding-left: 6px;
                 }
             }
-        }
-    }
-    .timeline__right, .timeline__left {
-        .timeline__item--focused > .timeline__item--marker {
-            // transform: translateX(-($timeline-line-width/2 + 3));
-            border-radius: 2px !important;
-            border-width: 4px;
         }
     }
 
@@ -690,9 +738,6 @@ $tlim--transitionTime: 0.4s;
     .timeline__item[data-bump-m="12x-24y"] {
         transform: translate(12px, -24px)
     }   
-
-    
-
     
     .timeline__item {
         position: absolute;
@@ -718,5 +763,11 @@ $tlim--transitionTime: 0.4s;
         flex: 3;
         height: 100%;
         margin: 0;
+    }
+}
+
+.timeline__item--focused > .timeline__item--marker {
+    ::after {  
+
     }
 }
