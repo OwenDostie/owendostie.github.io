@@ -4,7 +4,7 @@
 
 console.log("hi")
 
-
+// ADD FADING BEHAVIOR
 focusTimeline = () =>{
     const about = document.getElementById('about');
     const timeline = document.getElementById('timeline');
@@ -34,12 +34,12 @@ jumpToTimeline = () =>{
 }
 
 
+
 //// INTERACTIVE TIMELINE LINE ////
 // todo:
 // - update value when scrolling
-// let tll = document.getElementById('timeline__line');
-// let tllm = document.getElementById('timeline__line--marker');
-// let tllmt = document.getElementById('timeline__line--marker-text');
+
+
 showTimelineMarker = () => {
     if (bgFade.style.opacity == 0) {
     let tllm = document.getElementById('timeline__line--marker');
@@ -71,6 +71,7 @@ tllm.addEventListener('mouseleave', hideTimelineMarker);
 tllmt.addEventListener('mousemove', showTimelineMarker);
 tllmt.addEventListener('mouseleave', hideTimelineMarker);
 
+
 //// TIMELINE ITEMS ////
 
 
@@ -84,24 +85,21 @@ console.log(rect.y, rect.top, vpheight)
 window.addEventListener('scroll', focusTimeline);
 document.getElementsByClassName("about__arrowdown")[0].addEventListener('click', jumpToTimeline);
 
-// GET CURRENT DATE
+// Get current date
 const today = new Date().getTime();
 const timelineStart = new Date(2016, 8, 1).getTime();
 const timelineHeight = document.getElementsByClassName('timeline__body')[0].clientHeight;
 const tlScale = 1/(today - timelineStart)*timelineHeight
 
-// document.getElementById("print").innerHTML = tlmiddle;
-
-// ADD COLORS & ORGANIZE TIMELINE
+// Add colors and organize timeline
 const colors = ['crimson','cadetblue','darkseagreen','purple','slateblue','forestgreen']
-// const colors = ['red','orange','goldenrod','green','blue','indigo','violet']
 var items = document.querySelectorAll(".timeline__item");
 for(var i=0; i<items.length; i++){
 
     // items[i].style.color = colors[i % colors.length]
         // items[i].children.getElementsByClassName('timeline__item--marker').style.borderColor = colors[i % colors.length]
 
-    // IF THE ITEM HAS A START DATE MOVE IT AROUND ON THE TIMELINE
+    // If the item has a start date position vertically accordingly
     if (typeof items[i].dataset.begin !== 'undefined') {
         var dateEnd, dateBegin = 0
         if (items[i].dataset.end == 'present') {
@@ -120,6 +118,7 @@ for(var i=0; i<items.length; i++){
 
 
 //// ADD INTERACTION TO TIMELINE ITEM ////
+
 
 const bgFade = document.getElementById("bg-fade");
 const tl_line = document.getElementById('timeline__line')
@@ -154,12 +153,13 @@ for(var i=0; i<items.length; i++){
     // })
 }
 
+
 items = document.querySelectorAll(".timeline__item--description");
 for(var i=0; i<items.length; i++){
     items[i].addEventListener("mouseover", e =>{
         e.currentTarget.parentElement.parentElement.classList.remove("timeline__item--hover");
-        console.log(e.currentTarget.parentElement.parentElement);
         e.stopPropagation();
+        // console.log(e.currentTarget.parentElement.parentElement);
         // console.log(e.target.parentElemennt);
         // this.parentElement.classList.remove("timeline__item--hover");
         // console.log(event.target.classList);
@@ -170,7 +170,7 @@ for(var i=0; i<items.length; i++){
     })
 }
 
-// REMOVE FOCUS WHEN CLICKING AWAY FROM ITEM
+// Remove focus when clicking away from an item
 document.addEventListener("mousedown",function(event){
     items = document.querySelectorAll(".timeline__item");
     bgFade.classList.remove("bg-fade--visible");
