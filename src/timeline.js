@@ -2,8 +2,6 @@
 //// TIMELINE ////
 //todo:
 
-console.log("hi")
-
 // ADD FADING BEHAVIOR
 focusTimeline = () =>{
     const about = document.getElementById('about');
@@ -64,6 +62,9 @@ hideTimelineMarker = () => {
     tllm.style.opacity=0; tllmt.style.opacity=0;
 }
 
+let tll = document.getElementById('timeline__line');
+let tllm = document.getElementById('timeline__line--marker');
+let tllmt = document.getElementById('timeline__line--marker-text');
 tll.addEventListener('mousemove', showTimelineMarker);
 tll.addEventListener('mouseleave', hideTimelineMarker);
 tllm.addEventListener('mousemove', showTimelineMarker);
@@ -79,8 +80,6 @@ const about = document.getElementById('about');
 const rect = about.getBoundingClientRect();
 const vpheight = window.innerHeight;
 about.style.height = String(vpheight - rect.top)+'px';
-// about.style.height = String.toString('765px');
-console.log(rect.y, rect.top, vpheight)
 
 window.addEventListener('scroll', focusTimeline);
 document.getElementsByClassName("about__arrowdown")[0].addEventListener('click', jumpToTimeline);
@@ -134,7 +133,6 @@ for(var i=0; i<items.length; i++){
         this.parentElement.classList.remove("timeline__item--hover");
     }
     items[i].addEventListener('mousedown',function(event){
-        console.log(event.target);
         var marker = this.parentElement.getElementsByClassName("timeline__item--marker")[0]
         if (this.parentElement.classList.contains("timeline__item--focused")) {
             this.parentElement.classList.remove("timeline__item--focused");
@@ -143,7 +141,6 @@ for(var i=0; i<items.length; i++){
         } else {
             this.parentElement.classList.add("timeline__item--focused");
             marker.style.transform = `translateX(${(tl_line.getBoundingClientRect().x - marker.getBoundingClientRect().x) - 2}px)`
-            console.log(tl_line.getBoundingClientRect().x - marker.getBoundingClientRect().x)
             bgFade.classList.add("bg-fade--visible");
         }
         event.stopPropagation();
